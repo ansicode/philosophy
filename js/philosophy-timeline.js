@@ -14,9 +14,15 @@ class PhilosophyTimeline {
             ? window.philosophyData 
             : [];
         this.currentFilter = 'all';
+        this.schoolsWithPhilosophers = this.buildSchoolStructure();
+        this.schoolMap = {};
+        for (const item of this.schoolsWithPhilosophers) {
+            this.schoolMap[item.id] = item;
+        }
         
         // 创建 ID -> 对象映射，用于快速查询数据
         this.dataMap = this.createDataMap();
+        this.yearHeightMap = this.buildLengthMap();
         
         // 调试信息
         if (this.allData.length === 0) {
@@ -45,8 +51,9 @@ class PhilosophyTimeline {
         const yearHeightMap = {}; // { year: height }
         
         // 遍历所有数据
-        this.allData.forEach(item => {
-            const year = item.year || 0;
+        this.allData.forEach(rawItem => {
+            const item = this.schoolMap[rawItem.id] || rawItem;
+            const year = item.year;
             
             // 根据类型确定高度
             let blockHeight = 0;
@@ -85,9 +92,10 @@ class PhilosophyTimeline {
             const philosophers = this.allData
                 .filter(item => item.type === 'person' && item.school === school.id)
                 .sort((a, b) => (a.year || 0) - (b.year || 0));
-
+            const minYear = philosophers.length > 0 ? philosophers[0].year - 1 : school.year;
             return {
                 ...school,
+                year: minYear,
                 philosopherIds: philosophers.map(p => p.id),
                 philosophers: philosophers
             };
@@ -175,7 +183,7 @@ class PhilosophyTimeline {
         for (let i = 0; i < yearHeightMap.length; i++) {
             const entry = yearHeightMap[i];
             if (entry.year < year) {
-                yPosition += entry.height; // 20是年份间隔
+                yPosition += entry.height;
             } else {
                 break;
             }
@@ -194,7 +202,7 @@ class PhilosophyTimeline {
 
     // 计算学派的水平和纵向位置（基于时间重叠）
     calculateSchoolPositions(schools) {
-        const yearHeightMap = this.buildLengthMap();
+        const yearHeightMap = this.yearHeightMap;
         const positions = {}; // { schoolId: { left, top } }
         const blockWidth = 30; // 百分比
         const gapX = 2; // 水平间隔百分比
@@ -249,7 +257,7 @@ class PhilosophyTimeline {
     // 渲染时间轴
     render() {
         // 获取流派结构（包含按时间排序的哲学家）
-        const schoolsWithPhilosophers = this.buildSchoolStructure();
+        const schoolsWithPhilosophers = this.schoolsWithPhilosophers;
 
         if (schoolsWithPhilosophers.length === 0) {
             this.timelineContent.innerHTML = '';
@@ -285,13 +293,19 @@ class PhilosophyTimeline {
                 // 流派标题
                 html += this.createTimelineItem(school, schoolIndex);
                 
-                // 流派内的哲学家
+                // 流派内的哲学家（使用绝对定位）
                 if (school.philosophers && school.philosophers.length > 0) {
+                    const schoolY = position.top;
+                    
                     const philosophersHtml = school.philosophers
                         .map((philosopher, philIndex) => {
+                            const philosopherYear = philosopher.year || 0;
+                            const philosopherY = this.getYForYear(philosopherYear, this.yearHeightMap);
+                            const relativeY = philosopherY - schoolY;
+                            
                             // 全局索引用于样式
                             const globalIndex = schoolIndex + philIndex;
-                            return this.createTimelineItem(philosopher, globalIndex, true);
+                            return this.createTimelineItem(philosopher, globalIndex, true, relativeY);
                         })
                         .join('');
                     
@@ -306,13 +320,16 @@ class PhilosophyTimeline {
     }
 
     // 创建单个时间轴项目
-    createTimelineItem(item, index, isPhilosopherUnderSchool = false) {
+    createTimelineItem(item, index, isPhilosopherUnderSchool = false, relativeY = null) {
         const typeClass = `type-${item.type}`;
         const icon = this.getIconByType(item.type);
         const indentClass = isPhilosopherUnderSchool ? 'philosopher-under-school' : '';
+        
+        // 如果提供了相对Y位置，使用绝对定位
+        const positionStyle = relativeY !== null ? `position: absolute; top: ${relativeY}px; width: 100%;` : '';
 
         return `
-            <div class="timeline-item ${indentClass}">
+            <div class="timeline-item ${indentClass}" style="${positionStyle}">
                 <div class="timeline-year">${item.displayYear}</div>
                 <div class="timeline-dot ${typeClass}">${icon}</div>
                 <div class="timeline-card ${typeClass}">
