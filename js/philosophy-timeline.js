@@ -41,6 +41,30 @@ class PhilosophyTimeline {
         return map;
     }
 
+    // 构建流派数据结构：获取按时间排序的流派，每个流派包含按时间排序的哲学家ID
+    buildSchoolStructure() {
+        // 获取所有流派并按年份排序
+        const schools = this.allData
+            .filter(item => item.type === 'school')
+            .sort((a, b) => (a.year || 0) - (b.year || 0));
+
+        // 为每个流派添加按时间排序的哲学家
+        const schoolsWithPhilosophers = schools.map(school => {
+            // 获取属于该流派的哲学家
+            const philosophers = this.allData
+                .filter(item => item.type === 'person' && item.school === school.id)
+                .sort((a, b) => (a.year || 0) - (b.year || 0));
+
+            return {
+                ...school,
+                philosopherIds: philosophers.map(p => p.id),
+                philosophers: philosophers
+            };
+        });
+
+        return schoolsWithPhilosophers;
+    }
+
     init() {
         this.cacheDOM();
         this.bindEvents();
@@ -87,36 +111,63 @@ class PhilosophyTimeline {
 
     // 获取过滤后的数据
     getFilteredData() {
-        if (this.currentFilter === 'all') {
-            return this.allData;
-        }
-        return this.allData.filter(item => item.type === this.currentFilter);
+        let data = this.currentFilter === 'all' 
+            ? this.allData 
+            : this.allData.filter(item => item.type === this.currentFilter);
+        
+        // 按 year 排序
+        return data.sort((a, b) => {
+            const yearA = a.year || 0;
+            const yearB = b.year || 0;
+            return yearA - yearB;
+        });
     }
 
     // 渲染时间轴
     render() {
-        const filteredData = this.getFilteredData();
+        // 获取流派结构（包含按时间排序的哲学家）
+        const schoolsWithPhilosophers = this.buildSchoolStructure();
 
-        if (filteredData.length === 0) {
+        if (schoolsWithPhilosophers.length === 0) {
             this.timelineContent.innerHTML = '';
             this.emptyState.style.display = 'block';
             return;
         }
 
         this.emptyState.style.display = 'none';
-        this.timelineContent.innerHTML = filteredData
-            .map((item, index) => this.createTimelineItem(item, index))
+        
+        // 遍历每个流派，显示流派信息和其哲学家
+        this.timelineContent.innerHTML = schoolsWithPhilosophers
+            .map((school, schoolIndex) => {
+                // 创建流派卡片
+                let html = this.createTimelineItem(school, schoolIndex);
+                
+                // 在流派内显示其哲学家
+                if (school.philosophers && school.philosophers.length > 0) {
+                    const philosophersHtml = school.philosophers
+                        .map((philosopher, philIndex) => {
+                            // 全局索引用于样式
+                            const globalIndex = schoolIndex + philIndex;
+                            return this.createTimelineItem(philosopher, globalIndex, true);
+                        })
+                        .join('');
+                    
+                    html += philosophersHtml;
+                }
+                
+                return html;
+            })
             .join('');
     }
 
     // 创建单个时间轴项目
-    createTimelineItem(item, index) {
+    createTimelineItem(item, index, isPhilosopherUnderSchool = false) {
         const typeClass = `type-${item.type}`;
         const icon = this.getIconByType(item.type);
-        const isLast = index === this.getFilteredData().length - 1;
+        const indentClass = isPhilosopherUnderSchool ? 'philosopher-under-school' : '';
 
         return `
-            <div class="timeline-item">
+            <div class="timeline-item ${indentClass}">
                 <div class="timeline-year">${item.displayYear}</div>
                 <div class="timeline-dot ${typeClass}">${icon}</div>
                 <div class="timeline-card ${typeClass}">
@@ -159,10 +210,7 @@ class PhilosophyTimeline {
         // 如果是人物且提供了 schoolId，从数据源获取学派名称
         if (type === 'person' && schoolId && this.dataMap[schoolId]) {
             const schoolObj = this.dataMap[schoolId];
-            // 提取中文部分（在括号前）
-            const title = schoolObj.title;
-            const chineseTitle = title.split(' (')[0];
-            return chineseTitle;
+            return schoolObj.title;
         }
         
         return typeLabels[type] || '其他';
