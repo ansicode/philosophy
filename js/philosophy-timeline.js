@@ -15,15 +15,30 @@ class PhilosophyTimeline {
             : [];
         this.currentFilter = 'all';
         
+        // 创建 ID -> 对象映射，用于快速查询数据
+        this.dataMap = this.createDataMap();
+        
         // 调试信息
         if (this.allData.length === 0) {
             console.error('❌ 错误：philosophyData 未正确加载');
             console.log('window.philosophyData:', window.philosophyData);
         } else {
             console.log(`✓ 成功加载 ${this.allData.length} 条数据`);
+            console.log(`✓ 数据映射包含 ${Object.keys(this.dataMap).length} 个条目`);
         }
         
         this.init();
+    }
+
+    // 创建 ID -> 对象的映射
+    createDataMap() {
+        const map = {};
+        this.allData.forEach(item => {
+            if (item.id) {
+                map[item.id] = item;
+            }
+        });
+        return map;
     }
 
     init() {
@@ -141,54 +156,13 @@ class PhilosophyTimeline {
             'book': '主要著作'
         };
         
-        // School mapping
-        const schoolNames = {
-            'school-milesian': '米利都学派',
-            'school-pythagorean': '毕达哥拉斯学派',
-            'school-ionian': '爱奥尼亚学派',
-            'school-eleatic': '爱利亚学派',
-            'school-sophist': '诡辩学派',
-            'school-atomism': '原子论',
-            'school-stoicism': '斯多葛派',
-            'school-epicureanism': '伊壁鸠鲁学派',
-            'school-skepticism': '怀疑主义',
-            'school-neoplatonism': '新柏拉图主义',
-            'school-christian-philosophy': '基督教哲学',
-            'school-islamic-philosophy': '伊斯兰哲学',
-            'school-jewish-philosophy': '犹太哲学',
-            'school-humanism': '人文主义',
-            'school-rationalism': '理性主义',
-            'school-empiricism': '经验主义',
-            'school-enlightenment': '启蒙运动',
-            'school-german-idealism': '德国观念论',
-            'school-utilitarianism': '功利主义',
-            'school-positivism': '实证主义',
-            'school-neo-kantianism': '新康德主义',
-            'school-analytic-philosophy': '分析哲学',
-            'school-pragmatism': '实用主义',
-            'school-phenomenology': '现象学',
-            'school-hermeneutics': '解释学',
-            'school-existentialism': '存在主义',
-            'school-philosophy-of-science': '科学哲学',
-            'school-logical-positivism': '逻辑实证主义',
-            'school-structuralism': '结构主义',
-            'school-poststructuralism': '后结构主义',
-            'school-deconstructionism': '解构主义',
-            'school-frankfurt-school': '法兰克福学派',
-            'school-postmodernism': '后现代主义',
-            'school-feminism-philosophy': '女性主义哲学',
-            'school-environmental-ethics': '环境伦理学',
-            'school-queer-theory': '酷儿理论',
-            'school-postcolonial-theory': '后殖民理论',
-            'school-critical-realism': '批判实在论',
-            'school-marxism': '马克思主义',
-            'school-platonism': '柏拉图主义',
-            'school-aristotelianism': '亚里士多德主义'
-        };
-        
-        // If school id is provided and person type, return school name
-        if (schoolId && schoolNames[schoolId]) {
-            return schoolNames[schoolId];
+        // 如果是人物且提供了 schoolId，从数据源获取学派名称
+        if (type === 'person' && schoolId && this.dataMap[schoolId]) {
+            const schoolObj = this.dataMap[schoolId];
+            // 提取中文部分（在括号前）
+            const title = schoolObj.title;
+            const chineseTitle = title.split(' (')[0];
+            return chineseTitle;
         }
         
         return typeLabels[type] || '其他';
