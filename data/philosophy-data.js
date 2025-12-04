@@ -31,7 +31,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-thales",
+        id: "philosopher-thales", school: "school-milesian",
         year: -624,
         displayYear: "公元前624年",
         type: "person",
@@ -43,7 +43,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-pherecydes",
+        id: "philosopher-pherecydes", school: "school-ionian",
         year: -620,
         displayYear: "公元前620年",
         type: "person",
@@ -55,7 +55,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-anaximander",
+        id: "philosopher-anaximander", school: "school-milesian",
         year: -610,
         displayYear: "公元前610年",
         type: "person",
@@ -67,7 +67,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-anaximenes",
+        id: "philosopher-anaximenes", school: "school-milesian",
         year: -585,
         displayYear: "公元前585年",
         type: "person",
@@ -79,7 +79,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-pythagoras",
+        id: "philosopher-pythagoras", school: "school-pythagorean",
         year: -580,
         displayYear: "公元前580年",
         type: "person",
@@ -102,7 +102,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-xenophanes",
+        id: "philosopher-xenophanes", school: "school-eleatic",
         year: -570,
         displayYear: "公元前570年",
         type: "person",
@@ -114,7 +114,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-heraclitus",
+        id: "philosopher-heraclitus", school: "school-ionian",
         year: -535,
         displayYear: "公元前535年",
         type: "person",
@@ -137,7 +137,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-epicharmus",
+        id: "philosopher-epicharmus", school: "school-sophist",
         year: -530,
         displayYear: "公元前530年",
         type: "person",
@@ -160,7 +160,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-parmenides",
+        id: "philosopher-parmenides", school: "school-eleatic",
         year: -515,
         displayYear: "公元前515年",
         type: "person",
@@ -172,7 +172,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-anaxagoras",
+        id: "philosopher-anaxagoras", school: "school-ionian",
         year: -500,
         displayYear: "公元前500年",
         type: "person",
@@ -184,7 +184,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-empedocles",
+        id: "philosopher-empedocles", school: "school-atomism",
         year: -492,
         displayYear: "公元前492年",
         type: "person",
@@ -196,7 +196,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-zeno-of-elea",
+        id: "philosopher-zeno-of-elea", school: "school-eleatic",
         year: -490,
         displayYear: "公元前490年",
         type: "person",
@@ -208,7 +208,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-gorgias",
+        id: "philosopher-gorgias", school: "school-sophist",
         year: -483,
         displayYear: "公元前483年",
         type: "person",
@@ -231,7 +231,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-protagoras",
+        id: "philosopher-protagoras", school: "school-sophist",
         year: -481,
         displayYear: "公元前481年",
         type: "person",
@@ -243,7 +243,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-prodicus",
+        id: "philosopher-prodicus", school: "school-sophist",
         year: -470,
         displayYear: "公元前470年",
         type: "person",
@@ -255,7 +255,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-hippias",
+        id: "philosopher-hippias", school: "school-sophist",
         year: -460,
         displayYear: "公元前460年",
         type: "person",
@@ -267,7 +267,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-critias",
+        id: "philosopher-critias", school: "school-sophist",
         year: -460,
         displayYear: "公元前460年",
         type: "person",
@@ -290,7 +290,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-democritus",
+        id: "philosopher-democritus", school: "school-atomism",
         year: -450,
         displayYear: "公元前450年",
         type: "person",
@@ -302,7 +302,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-socrates",
+        id: "philosopher-socrates", school: "school-platonism",
         year: -470,
         displayYear: "公元前470年",
         type: "person",
@@ -314,7 +314,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-leucippus",
+        id: "philosopher-leucippus", school: "school-atomism",
         year: -445,
         displayYear: "公元前445年",
         type: "person",
@@ -326,7 +326,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-plato",
+        id: "philosopher-plato", school: "school-platonism",
         year: -428,
         displayYear: "公元前428年",
         type: "person",
@@ -338,7 +338,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-aristotle",
+        id: "philosopher-aristotle", school: "school-aristotelianism",
         year: -384,
         displayYear: "公元前384年",
         type: "person",
@@ -350,7 +350,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-diogenes",
+        id: "philosopher-diogenes", school: "school-skepticism",
         year: -360,
         displayYear: "公元前360年",
         type: "person",
@@ -373,7 +373,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-zeno-of-citium",
+        id: "philosopher-zeno-of-citium", school: "school-stoicism",
         year: -335,
         displayYear: "公元前335年",
         type: "person",
@@ -385,7 +385,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-epicurus",
+        id: "philosopher-epicurus", school: "school-epicureanism",
         year: -307,
         displayYear: "公元前307年",
         type: "person",
@@ -419,7 +419,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-pyrrho",
+        id: "philosopher-pyrrho", school: "school-skepticism",
         year: -360,
         displayYear: "公元前360年",
         type: "person",
@@ -431,7 +431,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-cicero",
+        id: "philosopher-cicero", school: "school-stoicism",
         year: -106,
         displayYear: "公元前106年",
         type: "person",
@@ -443,7 +443,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-lucretius",
+        id: "philosopher-lucretius", school: "school-epicureanism",
         year: -99,
         displayYear: "公元前99年",
         type: "person",
@@ -455,7 +455,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jesus",
+        id: "philosopher-jesus", school: "school-christian-philosophy",
         year: -4,
         displayYear: "公元前4年",
         type: "person",
@@ -467,7 +467,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-seneca",
+        id: "philosopher-seneca", school: "school-stoicism",
         year: 4,
         displayYear: "公元4年",
         type: "person",
@@ -490,7 +490,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-plotinus",
+        id: "philosopher-plotinus", school: "school-neoplatonism",
         year: 50,
         displayYear: "公元50年",
         type: "person",
@@ -502,7 +502,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-marcus-aurelius",
+        id: "philosopher-marcus-aurelius", school: "school-stoicism",
         year: 121,
         displayYear: "公元121年",
         type: "person",
@@ -514,7 +514,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-sextus-empiricus",
+        id: "philosopher-sextus-empiricus", school: "school-skepticism",
         year: 160,
         displayYear: "公元160年",
         type: "person",
@@ -526,7 +526,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-porphyry",
+        id: "philosopher-porphyry", school: "school-neoplatonism",
         year: 233,
         displayYear: "公元233年",
         type: "person",
@@ -538,7 +538,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-iamblichus",
+        id: "philosopher-iamblichus", school: "school-neoplatonism",
         year: 245,
         displayYear: "公元245年",
         type: "person",
@@ -550,7 +550,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-hypatia",
+        id: "philosopher-hypatia", school: "school-neoplatonism",
         year: 370,
         displayYear: "公元370年",
         type: "person",
@@ -562,7 +562,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-proclus",
+        id: "philosopher-proclus", school: "school-neoplatonism",
         year: 412,
         displayYear: "公元412年",
         type: "person",
@@ -578,7 +578,7 @@ const philosophyData = [
     // ==========================================
 
     {
-        id: "philosopher-augustine",
+        id: "philosopher-augustine", school: "school-christian-philosophy",
         year: 354,
         displayYear: "公元354年",
         type: "person",
@@ -623,7 +623,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-pseudo-dionysius",
+        id: "philosopher-pseudo-dionysius", school: "school-neoplatonism",
         year: 480,
         displayYear: "公元480年",
         type: "person",
@@ -635,7 +635,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-alcuin",
+        id: "philosopher-alcuin", school: "school-christian-philosophy",
         year: 735,
         displayYear: "公元735年",
         type: "person",
@@ -647,7 +647,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-anselm",
+        id: "philosopher-anselm", school: "school-christian-philosophy",
         year: 1033,
         displayYear: "公元1033年",
         type: "person",
@@ -659,7 +659,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-peter-abelard",
+        id: "philosopher-peter-abelard", school: "school-christian-philosophy",
         year: 1079,
         displayYear: "公元1079年",
         type: "person",
@@ -671,7 +671,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-ibn-sina",
+        id: "philosopher-ibn-sina", school: "school-islamic-philosophy",
         year: 1125,
         displayYear: "公元1125年",
         type: "person",
@@ -683,7 +683,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-thomas-aquinas",
+        id: "philosopher-thomas-aquinas", school: "school-christian-philosophy",
         year: 1138,
         displayYear: "公元1138年",
         type: "person",
@@ -695,7 +695,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-averroes",
+        id: "philosopher-averroes", school: "school-islamic-philosophy",
         year: 1126,
         displayYear: "公元1126年",
         type: "person",
@@ -707,7 +707,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-maimonides",
+        id: "philosopher-maimonides", school: "school-jewish-philosophy",
         year: 1138,
         displayYear: "公元1138年",
         type: "person",
@@ -719,7 +719,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-duns-scotus",
+        id: "philosopher-duns-scotus", school: "school-christian-philosophy",
         year: 1266,
         displayYear: "公元1266年",
         type: "person",
@@ -731,7 +731,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-william-of-ockham",
+        id: "philosopher-william-of-ockham", school: "school-christian-philosophy",
         year: 1285,
         displayYear: "公元1285年",
         type: "person",
@@ -743,7 +743,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-nicholas-of-cusa",
+        id: "philosopher-nicholas-of-cusa", school: "school-humanism",
         year: 1313,
         displayYear: "公元1313年",
         type: "person",
@@ -755,7 +755,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-pico",
+        id: "philosopher-pico", school: "school-humanism",
         year: 1478,
         displayYear: "公元1478年",
         type: "person",
@@ -782,7 +782,7 @@ const philosophyData = [
     // ==========================================
 
     {
-        id: "philosopher-niccol貌-machiavelli",
+        id: "philosopher-niccol貌-machiavelli", school: "school-humanism",
         year: 1469,
         displayYear: "公元1469年",
         type: "person",
@@ -794,7 +794,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-thomas-more",
+        id: "philosopher-thomas-more", school: "school-humanism",
         year: 1478,
         displayYear: "公元1478年",
         type: "person",
@@ -806,7 +806,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-michel-montaigne",
+        id: "philosopher-michel-montaigne", school: "school-humanism",
         year: 1533,
         displayYear: "公元1533年",
         type: "person",
@@ -818,7 +818,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-francis-bacon",
+        id: "philosopher-francis-bacon", school: "school-empiricism",
         year: 1561,
         displayYear: "公元1561年",
         type: "person",
@@ -830,7 +830,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-baruch-spinoza",
+        id: "philosopher-baruch-spinoza", school: "school-rationalism",
         year: 1632,
         displayYear: "公元1632年",
         type: "person",
@@ -853,7 +853,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-ren茅-descartes",
+        id: "philosopher-ren茅-descartes", school: "school-rationalism",
         year: 1596,
         displayYear: "公元1596年",
         type: "person",
@@ -876,7 +876,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-john-locke",
+        id: "philosopher-john-locke", school: "school-empiricism",
         year: 1632,
         displayYear: "公元1632年",
         type: "person",
@@ -888,7 +888,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-gottfried-leibniz",
+        id: "philosopher-gottfried-leibniz", school: "school-rationalism",
         year: 1646,
         displayYear: "公元1646年",
         type: "person",
@@ -900,7 +900,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-david-hume",
+        id: "philosopher-david-hume", school: "school-empiricism",
         year: 1685,
         displayYear: "公元1685年",
         type: "person",
@@ -912,7 +912,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-george-berkeley",
+        id: "philosopher-george-berkeley", school: "school-empiricism",
         year: 1694,
         displayYear: "公元1694年",
         type: "person",
@@ -924,7 +924,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-montesquieu",
+        id: "philosopher-montesquieu", school: "school-enlightenment",
         year: 1689,
         displayYear: "公元1689年",
         type: "person",
@@ -936,7 +936,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-voltaire",
+        id: "philosopher-voltaire", school: "school-rationalism",
         year: 1694,
         displayYear: "公元1694年",
         type: "person",
@@ -948,7 +948,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-adam-smith",
+        id: "philosopher-adam-smith", school: "school-enlightenment",
         year: 1723,
         displayYear: "公元1723年",
         type: "person",
@@ -960,7 +960,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jean-jacques-rousseau",
+        id: "philosopher-jean-jacques-rousseau", school: "school-enlightenment",
         year: 1712,
         displayYear: "公元1712年",
         type: "person",
@@ -987,7 +987,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-immanuel-kant",
+        id: "philosopher-immanuel-kant", school: "school-rationalism",
         year: 1724,
         displayYear: "公元1724年",
         type: "person",
@@ -999,7 +999,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-johann-fichte",
+        id: "philosopher-johann-fichte", school: "school-german-idealism",
         year: 1762,
         displayYear: "公元1762年",
         type: "person",
@@ -1011,7 +1011,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-friedrich-schelling",
+        id: "philosopher-friedrich-schelling", school: "school-german-idealism",
         year: 1775,
         displayYear: "公元1775年",
         type: "person",
@@ -1034,7 +1034,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-georg-hegel",
+        id: "philosopher-georg-hegel", school: "school-german-idealism",
         year: 1770,
         displayYear: "公元1770年",
         type: "person",
@@ -1046,7 +1046,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-arthur-schopenhauer",
+        id: "philosopher-arthur-schopenhauer", school: "school-german-idealism",
         year: 1788,
         displayYear: "公元1788年",
         type: "person",
@@ -1058,7 +1058,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-friedrich-nietzsche",
+        id: "philosopher-friedrich-nietzsche", school: "school-rationalism",
         year: 1844,
         displayYear: "公元1844年",
         type: "person",
@@ -1074,7 +1074,7 @@ const philosophyData = [
     // ==========================================
 
     {
-        id: "philosopher-s酶ren-kierkegaard",
+        id: "philosopher-s酶ren-kierkegaard", school: "school-existentialism",
         year: 1813,
         displayYear: "公元1813年",
         type: "person",
@@ -1108,7 +1108,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-john-stuart-mill",
+        id: "philosopher-john-stuart-mill", school: "school-utilitarianism",
         year: 1806,
         displayYear: "公元1806年",
         type: "person",
@@ -1142,7 +1142,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-karl-marx",
+        id: "philosopher-karl-marx", school: "school-marxism",
         year: 1818,
         displayYear: "公元1818年",
         type: "person",
@@ -1165,7 +1165,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-ludwig-wittgenstein",
+        id: "philosopher-ludwig-wittgenstein", school: "school-analytic-philosophy",
         year: 1872,
         displayYear: "公元1872年",
         type: "person",
@@ -1188,7 +1188,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-charles-sanders-peirce",
+        id: "philosopher-charles-sanders-peirce", school: "school-pragmatism",
         year: 1839,
         displayYear: "公元1839年",
         type: "person",
@@ -1200,7 +1200,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-william-james",
+        id: "philosopher-william-james", school: "school-pragmatism",
         year: 1842,
         displayYear: "公元1842年",
         type: "person",
@@ -1212,7 +1212,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-henri-bergson",
+        id: "philosopher-henri-bergson", school: "school-pragmatism",
         year: 1859,
         displayYear: "公元1859年",
         type: "person",
@@ -1224,7 +1224,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-john-dewey",
+        id: "philosopher-john-dewey", school: "school-pragmatism",
         year: 1859,
         displayYear: "公元1859年",
         type: "person",
@@ -1247,7 +1247,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-edmund-husserl",
+        id: "philosopher-edmund-husserl", school: "school-phenomenology",
         year: 1859,
         displayYear: "公元1859年",
         type: "person",
@@ -1259,7 +1259,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-martin-heidegger",
+        id: "philosopher-martin-heidegger", school: "school-existentialism",
         year: 1889,
         displayYear: "公元1889年",
         type: "person",
@@ -1282,7 +1282,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-karl-jaspers",
+        id: "philosopher-karl-jaspers", school: "school-existentialism",
         year: 1883,
         displayYear: "公元1883年",
         type: "person",
@@ -1294,7 +1294,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-gabriel-marcel",
+        id: "philosopher-gabriel-marcel", school: "school-existentialism",
         year: 1889,
         displayYear: "公元1889年",
         type: "person",
@@ -1306,7 +1306,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-maurice-merleau-ponty",
+        id: "philosopher-maurice-merleau-ponty", school: "school-phenomenology",
         year: 1908,
         displayYear: "公元1908年",
         type: "person",
@@ -1318,7 +1318,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-albert-camus",
+        id: "philosopher-albert-camus", school: "school-existentialism",
         year: 1913,
         displayYear: "公元1913年",
         type: "person",
@@ -1341,7 +1341,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jean-paul-sartre",
+        id: "philosopher-jean-paul-sartre", school: "school-existentialism",
         year: 1905,
         displayYear: "公元1905年",
         type: "person",
@@ -1353,7 +1353,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-simone-de-beauvoir",
+        id: "philosopher-simone-de-beauvoir", school: "school-existentialism",
         year: 1908,
         displayYear: "公元1908年",
         type: "person",
@@ -1376,7 +1376,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-karl-popper",
+        id: "philosopher-karl-popper", school: "school-philosophy-of-science",
         year: 1906,
         displayYear: "公元1906年",
         type: "person",
@@ -1399,7 +1399,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-moritz-schlick",
+        id: "philosopher-moritz-schlick", school: "school-logical-positivism",
         year: 1882,
         displayYear: "公元1882年",
         type: "person",
@@ -1411,7 +1411,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-rudolf-carnap",
+        id: "philosopher-rudolf-carnap", school: "school-positivism",
         year: 1891,
         displayYear: "公元1891年",
         type: "person",
@@ -1423,7 +1423,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-a.j.-ayer",
+        id: "philosopher-a.j.-ayer", school: "school-positivism",
         year: 1910,
         displayYear: "公元1910年",
         type: "person",
@@ -1435,7 +1435,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-thomas-kuhn",
+        id: "philosopher-thomas-kuhn", school: "school-philosophy-of-science",
         year: 1922,
         displayYear: "公元1922年",
         type: "person",
@@ -1458,7 +1458,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-michel-foucault",
+        id: "philosopher-michel-foucault", school: "school-postmodernism",
         year: 1923,
         displayYear: "公元1923年",
         type: "person",
@@ -1492,7 +1492,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jacques-derrida",
+        id: "philosopher-jacques-derrida", school: "school-deconstructionism",
         year: 1930,
         displayYear: "公元1930年",
         type: "person",
@@ -1504,7 +1504,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-gilles-deleuze",
+        id: "philosopher-gilles-deleuze", school: "school-structuralism",
         year: 1925,
         displayYear: "公元1925年",
         type: "person",
@@ -1527,7 +1527,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-max-horkheimer",
+        id: "philosopher-max-horkheimer", school: "school-frankfurt-school",
         year: 1895,
         displayYear: "公元1895年",
         type: "person",
@@ -1539,7 +1539,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-theodor-adorno",
+        id: "philosopher-theodor-adorno", school: "school-frankfurt-school",
         year: 1903,
         displayYear: "公元1903年",
         type: "person",
@@ -1551,7 +1551,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-herbert-marcuse",
+        id: "philosopher-herbert-marcuse", school: "school-frankfurt-school",
         year: 1898,
         displayYear: "公元1898年",
         type: "person",
@@ -1563,7 +1563,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-j眉rgen-habermas",
+        id: "philosopher-j眉rgen-habermas", school: "school-frankfurt-school",
         year: 1931,
         displayYear: "公元1931年",
         type: "person",
@@ -1586,7 +1586,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-peter-singer",
+        id: "philosopher-peter-singer", school: "school-pragmatism",
         year: 1932,
         displayYear: "公元1932年",
         type: "person",
@@ -1598,7 +1598,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-ludwig-wittgenstein",
+        id: "philosopher-ludwig-wittgenstein", school: "school-analytic-philosophy",
         year: 1920,
         displayYear: "公元1920年",
         type: "person",
@@ -1610,7 +1610,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-john-rawls",
+        id: "philosopher-john-rawls", school: "school-analytic-philosophy",
         year: 1941,
         displayYear: "公元1941年",
         type: "person",
@@ -1633,7 +1633,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-judith-butler",
+        id: "philosopher-judith-butler", school: "school-queer-theory",
         year: 1947,
         displayYear: "公元1947年",
         type: "person",
@@ -1645,7 +1645,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-noam-chomsky",
+        id: "philosopher-noam-chomsky", school: "school-analytic-philosophy",
         year: 1942,
         displayYear: "公元1942年",
         type: "person",
@@ -1668,7 +1668,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-montague-lloyd-george",
+        id: "philosopher-montague-lloyd-george", school: "school-analytic-philosophy",
         year: 1926,
         displayYear: "公元1926年",
         type: "person",
@@ -1680,7 +1680,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-patrick-suppes",
+        id: "philosopher-patrick-suppes", school: "school-philosophy-of-science",
         year: 1933,
         displayYear: "公元1933年",
         type: "person",
@@ -1692,7 +1692,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-donald-davidson",
+        id: "philosopher-donald-davidson", school: "school-analytic-philosophy",
         year: 1928,
         displayYear: "公元1928年",
         type: "person",
@@ -1715,7 +1715,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-thomas-nagel",
+        id: "philosopher-thomas-nagel", school: "school-analytic-philosophy",
         year: 1934,
         displayYear: "公元1934年",
         type: "person",
@@ -1749,7 +1749,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-carl-hempel",
+        id: "philosopher-carl-hempel", school: "school-philosophy-of-science",
         year: 1936,
         displayYear: "公元1936年",
         type: "person",
@@ -1761,7 +1761,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-willard-quine",
+        id: "philosopher-willard-quine", school: "school-analytic-philosophy",
         year: 1940,
         displayYear: "公元1940年",
         type: "person",
@@ -1773,7 +1773,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-hilary-putnam",
+        id: "philosopher-hilary-putnam", school: "school-analytic-philosophy",
         year: 1950,
         displayYear: "公元1950年",
         type: "person",
@@ -1785,7 +1785,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-saul-kripke",
+        id: "philosopher-saul-kripke", school: "school-analytic-philosophy",
         year: 1951,
         displayYear: "公元1951年",
         type: "person",
@@ -1797,7 +1797,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-martha-nussbaum",
+        id: "philosopher-martha-nussbaum", school: "school-feminism-philosophy",
         year: 1960,
         displayYear: "公元1960年",
         type: "person",
@@ -1809,7 +1809,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-amartya-sen",
+        id: "philosopher-amartya-sen", school: "school-pragmatism",
         year: 1961,
         displayYear: "公元1961年",
         type: "person",
@@ -1821,7 +1821,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-stephanie-lewis",
+        id: "philosopher-stephanie-lewis", school: "school-analytic-philosophy",
         year: 1968,
         displayYear: "公元1968年",
         type: "person",
@@ -1833,7 +1833,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-richard-rorty",
+        id: "philosopher-richard-rorty", school: "school-analytic-philosophy",
         year: 1939,
         displayYear: "公元1939年",
         type: "person",
@@ -1845,7 +1845,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-noam-chomsky",
+        id: "philosopher-noam-chomsky", school: "school-analytic-philosophy",
         year: 1960,
         displayYear: "公元1960年",
         type: "person",
@@ -1857,7 +1857,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-j.l.-austin",
+        id: "philosopher-j.l.-austin", school: "school-analytic-philosophy",
         year: 1941,
         displayYear: "公元1941年",
         type: "person",
@@ -1869,7 +1869,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-p.f.-strawson",
+        id: "philosopher-p.f.-strawson", school: "school-analytic-philosophy",
         year: 1943,
         displayYear: "公元1943年",
         type: "person",
@@ -1881,7 +1881,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-hans-georg-gadamer",
+        id: "philosopher-hans-georg-gadamer", school: "school-hermeneutics",
         year: 1944,
         displayYear: "公元1944年",
         type: "person",
@@ -1893,7 +1893,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-paul-ricoeur",
+        id: "philosopher-paul-ricoeur", school: "school-phenomenology",
         year: 1945,
         displayYear: "公元1945年",
         type: "person",
@@ -1905,7 +1905,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-alasdair-macintyre",
+        id: "philosopher-alasdair-macintyre", school: "school-analytic-philosophy",
         year: 1946,
         displayYear: "公元1946年",
         type: "person",
@@ -1917,7 +1917,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-amita-zhenke",
+        id: "philosopher-amita-zhenke", school: "school-humanism",
         year: 1947,
         displayYear: "公元1947年",
         type: "person",
@@ -1929,7 +1929,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-catherine-patterson",
+        id: "philosopher-catherine-patterson", school: "school-philosophy-of-science",
         year: 1948,
         displayYear: "公元1948年",
         type: "person",
@@ -1941,7 +1941,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-slavoj-zizek",
+        id: "philosopher-slavoj-zizek", school: "school-poststructuralism",
         year: 1949,
         displayYear: "公元1949年",
         type: "person",
@@ -1953,7 +1953,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jean-baudrillard",
+        id: "philosopher-jean-baudrillard", school: "school-postmodernism",
         year: 1950,
         displayYear: "公元1950年",
         type: "person",
@@ -1965,7 +1965,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-roland-barthes",
+        id: "philosopher-roland-barthes", school: "school-existentialism",
         year: 1951,
         displayYear: "公元1951年",
         type: "person",
@@ -1977,7 +1977,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jacques-lacan",
+        id: "philosopher-jacques-lacan", school: "school-poststructuralism",
         year: 1952,
         displayYear: "公元1952年",
         type: "person",
@@ -1989,7 +1989,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-jeanette-laveque",
+        id: "philosopher-jeanette-laveque", school: "school-environmental-ethics",
         year: 1953,
         displayYear: "公元1953年",
         type: "person",
@@ -2001,7 +2001,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-robert-nozick",
+        id: "philosopher-robert-nozick", school: "school-analytic-philosophy",
         year: 1954,
         displayYear: "公元1954年",
         type: "person",
@@ -2013,7 +2013,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-james-leslie",
+        id: "philosopher-james-leslie", school: "school-philosophy-of-science",
         year: 1955,
         displayYear: "公元1955年",
         type: "person",
@@ -2025,7 +2025,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-sarah-rubinstein",
+        id: "philosopher-sarah-rubinstein", school: "school-analytic-philosophy",
         year: 1956,
         displayYear: "公元1956年",
         type: "person",
@@ -2037,7 +2037,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-michelangelo-solomonte",
+        id: "philosopher-michelangelo-solomonte", school: "school-phenomenology",
         year: 1957,
         displayYear: "公元1957年",
         type: "person",
@@ -2049,7 +2049,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-lynn-foster-williams",
+        id: "philosopher-lynn-foster-williams", school: "school-analytic-philosophy",
         year: 1958,
         displayYear: "公元1958年",
         type: "person",
@@ -2061,7 +2061,7 @@ const philosophyData = [
     },
 
     {
-        id: "philosopher-antonio-mendes",
+        id: "philosopher-antonio-mendes", school: "school-postcolonial-theory",
         year: 1959,
         displayYear: "公元1959年",
         type: "person",
