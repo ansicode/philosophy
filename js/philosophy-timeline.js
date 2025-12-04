@@ -41,6 +41,37 @@ class PhilosophyTimeline {
         return map;
     }
 
+    buildLengthMap() {
+        const yearHeightMap = {}; // { year: height }
+        
+        // 遍历所有数据
+        this.allData.forEach(item => {
+            const year = item.year || 0;
+            
+            // 根据类型确定高度
+            let blockHeight = 0;
+            if (item.type === 'school') {
+                blockHeight = 200;
+            } else if (item.type === 'person') {
+                blockHeight = 250;
+            }
+            
+            // 如果该年已有记录，取最大值
+            if (yearHeightMap[year]) {
+                yearHeightMap[year] = Math.max(yearHeightMap[year], blockHeight);
+            } else {
+                yearHeightMap[year] = blockHeight;
+            }
+        });
+        
+        // 转换为按year排序的list: [{year, height}, ...]
+        const sortedList = Object.entries(yearHeightMap)
+            .map(([year, height]) => ({ year: parseInt(year), height }))
+            .sort((a, b) => a.year - b.year);
+        
+        return sortedList;
+    }
+
     // 构建流派数据结构：获取按时间排序的流派，每个流派包含按时间排序的哲学家ID
     buildSchoolStructure() {
         // 获取所有流派并按年份排序
@@ -123,6 +154,98 @@ class PhilosophyTimeline {
         });
     }
 
+    // 计算流派的时间范围
+    calculateSchoolTimeRange(school) {
+        let minYear = school.year || 0;
+        let maxYear = school.year || 0;
+
+        if (school.philosophers && school.philosophers.length > 0) {
+            school.philosophers.forEach(philosopher => {
+                const year = philosopher.year || 0;
+                minYear = Math.min(minYear, year);
+                maxYear = Math.max(maxYear, year);
+            });
+        }
+
+        return { minYear, maxYear };
+    }
+
+    getYForYear(year, yearHeightMap) {
+        let yPosition = 0;
+        for (let i = 0; i < yearHeightMap.length; i++) {
+            const entry = yearHeightMap[i];
+            if (entry.year < year) {
+                yPosition += entry.height; // 20是年份间隔
+            } else {
+                break;
+            }
+        }
+        return yPosition;
+    }
+
+    calculateTimeLengthY(timeRange, yearHeightMap) {
+        return {minY: this.getYForYear(timeRange.minYear, yearHeightMap), maxY: this.getYForYear(timeRange.maxYear + 1, yearHeightMap)};
+    }
+
+    // 检测两个时间范围是否重叠
+    timeRangesOverlap(range1, range2) {
+        return range1.maxYear >= range2.minYear && range2.maxYear >= range1.minYear;
+    }
+
+    // 计算学派的水平和纵向位置（基于时间重叠）
+    calculateSchoolPositions(schools) {
+        const yearHeightMap = this.buildLengthMap();
+        const positions = {}; // { schoolId: { left, top } }
+        const blockWidth = 30; // 百分比
+        const gapX = 2; // 水平间隔百分比
+        const columns = []; // 用于存储每列的最后位置
+
+        // 按时间排序处理每个流派
+        schools.forEach((school, index) => {
+            const timeRange = this.calculateSchoolTimeRange(school);
+            const YRange = this.calculateTimeLengthY(timeRange, yearHeightMap);
+            let columnIndex = 0;
+
+            // 检查与之前的流派的时间重叠情况
+            let foundColumn = false;
+            for (let i = 0; i < columns.length; i++) {
+                const column = columns[i];
+                foundColumn = true;
+                for (let j = 0; j < column.length; j++) {
+                    const { YRange: prevRange } = column[j];
+                    
+                    if (!(YRange.minY >= prevRange.maxY || YRange.maxY <= prevRange.minY)) {
+                        foundColumn = false;
+                        break;
+                    }
+                }
+                if (foundColumn) {
+                    columnIndex = i;
+                    break;
+                }
+            }
+            if (!foundColumn) {
+                columnIndex = columns.length;
+                const newColumn = [];
+                newColumn.push({ YRange });
+                columns.push(newColumn);
+            } else {
+                columns[columnIndex].push({ YRange });
+            }
+
+            // 计算最终位置
+            const leftPosition = columnIndex * (blockWidth + gapX);
+            const topPosition = YRange.minY;
+            
+            positions[school.id] = {
+                left: leftPosition,
+                top: topPosition
+            };
+        });
+
+        return positions;
+    }
+
     // 渲染时间轴
     render() {
         // 获取流派结构（包含按时间排序的哲学家）
@@ -136,11 +259,28 @@ class PhilosophyTimeline {
 
         this.emptyState.style.display = 'none';
         
+        // 计算每个流派的位置（基于时间重叠）
+        const schoolPositions = this.calculateSchoolPositions(schoolsWithPhilosophers);
+        
+        // 计算容器的最大高度
+        let maxHeight = 0;
+        Object.values(schoolPositions).forEach(pos => {
+            maxHeight = Math.max(maxHeight, pos.top + 500); // 500是估算的块高度
+        });
+        
+        // 为timeline-content设置位置为relative，以支持绝对定位的子元素
+        if (this.timelineContent.style.position !== 'relative') {
+            this.timelineContent.style.position = 'relative';
+            this.timelineContent.style.minHeight = Math.max(maxHeight, 1000) + 'px';
+        }
+        
         // 遍历每个流派，显示流派信息和其哲学家（作为一个整体）
         this.timelineContent.innerHTML = schoolsWithPhilosophers
             .map((school, schoolIndex) => {
-                // 创建流派块容器（包含流派和哲学家）
-                let html = '<div class="school-block">';
+                const position = schoolPositions[school.id];
+                
+                // 创建流派块容器（包含流派和哲学家），使用绝对定位
+                let html = `<div class="school-block" style="left: ${position.left}%; top: ${position.top}px;">`;
                 
                 // 流派标题
                 html += this.createTimelineItem(school, schoolIndex);

@@ -42,7 +42,6 @@ body {
 }
 
 .container {
-    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -312,6 +311,7 @@ body {
 }
 
 .card-header {
+    max-height: 250px;
     padding: 1.25rem;
     border-bottom: none;
     transition: all 0.3s ease;
@@ -568,4 +568,14 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+/* ==========================================
+   流派块容器
+   ========================================== */
+
+.school-block {
+    position: absolute;
+    max-width: 30%;
+    min-width: 300px;
 }
