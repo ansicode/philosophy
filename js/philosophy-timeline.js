@@ -136,13 +136,16 @@ class PhilosophyTimeline {
 
         this.emptyState.style.display = 'none';
         
-        // 遍历每个流派，显示流派信息和其哲学家
+        // 遍历每个流派，显示流派信息和其哲学家（作为一个整体）
         this.timelineContent.innerHTML = schoolsWithPhilosophers
             .map((school, schoolIndex) => {
-                // 创建流派卡片
-                let html = this.createTimelineItem(school, schoolIndex);
+                // 创建流派块容器（包含流派和哲学家）
+                let html = '<div class="school-block">';
                 
-                // 在流派内显示其哲学家
+                // 流派标题
+                html += this.createTimelineItem(school, schoolIndex);
+                
+                // 流派内的哲学家
                 if (school.philosophers && school.philosophers.length > 0) {
                     const philosophersHtml = school.philosophers
                         .map((philosopher, philIndex) => {
@@ -154,6 +157,8 @@ class PhilosophyTimeline {
                     
                     html += philosophersHtml;
                 }
+                
+                html += '</div>'; // 关闭 school-block
                 
                 return html;
             })
