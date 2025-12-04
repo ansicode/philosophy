@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="哲学史导读 - 从泰勒斯到存在主义的智慧之旅">
+    <title>哲学史导读 - Philosophy Timeline</title>
+    <link rel="stylesheet" href="css/philosophy-timeline.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header sticky-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- 过滤器按钮组 -->
+                <div class="filters-container">
+                    <div class="header-title">
+                        <h1>哲学史导读</h1>
+                    </div>
+                
+                    <button class="filter-btn active" data-filter="all">
+                        <span>全部</span>
+                    </button>
+                    <button class="filter-btn" data-filter="school">
+                        <span>流派</span>
+                    </button>
+                    <button class="filter-btn" data-filter="person">
+                        <span>人物</span>
+                    </button>
+                    <button class="filter-btn" data-filter="book">
+                        <span>著作</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 时间轴容器 -->
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div id="timeline-content" class="timeline-content">
+                    <!-- 时间轴项目将由 JavaScript 动态插入 -->
+                </div>
+            </div>
+
+            <!-- 空状态提示 -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <p>没有找到相关记录</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部信息 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 哲学史导读</p>
+        </div>
+    </footer>
+
+    <!-- 数据脚本 -->
+    <script src="data/philosophy-data.js"></script>
+    <!-- 主程序脚本 -->
+    <script src="js/philosophy-timeline.js"></script>
+</body>
+</html>

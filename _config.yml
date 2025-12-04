@@ -1,0 +1,28 @@
+# Jekyll configuration for GitHub Pages
+title: "History of Philosophy"
+description: "A comprehensive exploration of the history of philosophy across cultures and centuries"
+author: "ansicode"
+url: "https://ansicode.github.io/philosophy"
+repository: "ansicode/philosophy"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# Include/exclude paths
+include:
+  - .nojekyll
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
