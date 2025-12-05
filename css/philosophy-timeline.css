@@ -239,7 +239,6 @@ body {
     color: var(--color-text-light);
     font-family: 'Monaco', 'Menlo', monospace;
     text-align: right;
-    padding-right: 1rem;
 }
 
 .timeline-dot {
@@ -575,7 +574,8 @@ body {
    ========================================== */
 
 .school-block {
-    position: absolute;
-    max-width: 30%;
-    min-width: 300px;
+    position: relative;
+    max-width: none;
+    min-width: 220px;
+    flex: 0 1 calc(30% - 1rem);
 }
