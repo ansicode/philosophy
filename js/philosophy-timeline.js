@@ -105,9 +105,15 @@ class PhilosophyTimeline {
             });
         }
         
-        // 将流派分配到各段，计算每段内的流派数和最大元素数
-        const schoolFirstSegment = {}; // schoolId -> 第一次出现的 segmentIndex
+        // 初始化每个segment的列数组
+        segments.forEach(segment => {
+            segment.columns = []; // columns[columnIndex] = schoolId or null
+        });
         
+        const schoolFirstSegment = {}; // schoolId -> 第一次出现的 segmentIndex
+        const schoolColumnIndex = {}; // schoolId -> 全局列索引
+        
+        // 遍历每个流派，为其分配列
         schools.forEach(school => {
             // 计算该流派涵盖的所有段
             const schoolMinYear = school.year || 0;
@@ -117,35 +123,76 @@ class PhilosophyTimeline {
                 schoolMaxYear = Math.max(...school.philosophers.map(p => p.year || 0));
             }
             
+            // 找出该流派跨越的所有segment索引
+            const coveredSegments = [];
             segments.forEach((segment, segmentIndex) => {
-                // 检查流派是否与该段时间重叠
                 if (schoolMaxYear >= segment.startYear && schoolMinYear < segment.endYear) {
-                    if (schoolFirstSegment[school.id] === undefined) {
-                        schoolFirstSegment[school.id] = segmentIndex;
-                    }
-                    segment.schools.push(school);
-                    
-                    // 计算该流派在该段内的元素数（流派+其哲学家）
-                    let elementCount = 1; // 流派本身
-                    if (school.philosophers) {
-                        school.philosophers.forEach(philosopher => {
-                            if ((philosopher.year || 0) >= segment.startYear && (philosopher.year || 0) < segment.endYear) {
-                                elementCount++;
-                            }
-                        });
-                    }
-                    
-                    segment.maxElementCount = Math.max(segment.maxElementCount, elementCount);
+                    coveredSegments.push(segmentIndex);
                 }
             });
+            
+            if (coveredSegments.length === 0) return;
+            
+            // 记录首次出现的segment
+            schoolFirstSegment[school.id] = coveredSegments[0];
+            
+            // 寻找可用的列索引（在所有覆盖的segment中都未被占用）
+            let columnIndex = 0;
+            let foundColumn = false;
+            
+            while (!foundColumn) {
+                // 检查这个列索引在所有覆盖的segment中是否都可用
+                let allAvailable = true;
+                for (const segmentIndex of coveredSegments) {
+                    const segment = segments[segmentIndex];
+                    // 如果该列已被占用（不为null且不为undefined）
+                    if (segment.columns[columnIndex] !== null && segment.columns[columnIndex] !== undefined) {
+                        allAvailable = false;
+                        break;
+                    }
+                }
+                
+                if (allAvailable) {
+                    // 找到可用列，在所有覆盖的segment中占据这一列
+                    foundColumn = true;
+                    schoolColumnIndex[school.id] = columnIndex;
+                    
+                    coveredSegments.forEach(segmentIndex => {
+                        const segment = segments[segmentIndex];
+                        // 如果列数组不够长，用null填充
+                        while (segment.columns.length < columnIndex) {
+                            segment.columns.push(null);
+                        }
+                        segment.columns[columnIndex] = school.id;
+                    });
+                } else {
+                    // 该列被占用，尝试下一列
+                    columnIndex++;
+                }
+            }
         });
         
-        // 为每个流派计算全局列索引（基于其在首次出现segment中的位置）
-        const schoolColumnIndex = {}; // schoolId -> 全局列索引
-        segments.forEach((segment, segmentIndex) => {
-            segment.schools.forEach((school, positionInSegment) => {
-                if (schoolFirstSegment[school.id] === segmentIndex) {
-                    schoolColumnIndex[school.id] = positionInSegment;
+        // 将columns数组转换为schools数组，并计算元素数
+        segments.forEach(segment => {
+            segment.schools = [];
+            segment.columns.forEach(schoolId => {
+                if (schoolId !== null && schoolId !== undefined) {
+                    const school = schools.find(s => s.id === schoolId);
+                    if (school) {
+                        segment.schools.push(school);
+                        
+                        // 计算该流派在该段内的元素数（流派+其哲学家）
+                        let elementCount = 1; // 流派本身
+                        if (school.philosophers) {
+                            school.philosophers.forEach(philosopher => {
+                                if ((philosopher.year || 0) >= segment.startYear && (philosopher.year || 0) < segment.endYear) {
+                                    elementCount++;
+                                }
+                            });
+                        }
+                        
+                        segment.maxElementCount = Math.max(segment.maxElementCount, elementCount);
+                    }
                 }
             });
         });
@@ -420,14 +467,14 @@ class PhilosophyTimeline {
                 <div style="position: absolute; left: 40px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, #e5e7eb, #cbd5e1); opacity: 0.4;"></div>
             </div>` : '';
 
-                // <div class="timeline-year">${item.displayYear}</div>
                 // <div class="timeline-dot ${typeClass}">${icon}</div>
-                // <div class="card-label">${this.getLabelByType(item.type, item.school)}</div>
         return `
             ${spacerElement}
             <div class="timeline-item ${indentClass}">
+                <div class="timeline-year">${item.displayYear}</div>
                 <div class="timeline-card ${typeClass}">
                     <div class="card-header">
+                        <div class="card-label">${this.getLabelByType(item.type, item.school)}</div>
                         <h3 class="card-title">${item.title}</h3>
                         <p class="card-subtitle">${item.subtitle}</p>
                         ${item.birthDeath ? `<div class="card-meta">⏳ ${item.birthDeath}</div>` : ''}
