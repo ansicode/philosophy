@@ -471,7 +471,6 @@ class PhilosophyTimeline {
         return `
             ${spacerElement}
             <div class="timeline-item ${indentClass}">
-                <div class="timeline-year">${item.displayYear}</div>
                 <div class="timeline-card ${typeClass}">
                     <div class="card-header">
                         <div class="card-label">${this.getLabelByType(item.type, item.school)}</div>
