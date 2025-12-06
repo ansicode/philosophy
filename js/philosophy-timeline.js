@@ -433,7 +433,7 @@ class PhilosophyTimeline {
                             
                             html += '</div>'; // 关闭 school-block
                         }else {
-                            // 该列无流派，创建空白占位符
+                            // 该列有流派但不渲染，创建空白占位符
                             html += `<div class="school-block empty-placeholder" style="
                                 flex: 0 0 280px;
                                 width: 280px;
@@ -485,8 +485,7 @@ class PhilosophyTimeline {
                         <div class="card-toggle">⌄</div>
                     </div>
                     <div class="card-details">
-                        <div class="card-details-content">
-                            ${this.formatDetails(item.details)}
+                        <div class="card-details-content">${item.image ? `<div style="margin-bottom: 1rem;"><img src="${item.image}" alt="${item.title}" style="max-width: 100%; border-radius: 8px;"></div>` : ''}${item.phrase ? `<div class="card-phrase" style="margin-bottom: 1rem; padding: 0.75rem 1rem; border-left: 4px solid #e5e7eb; background: #f8fafc; font-style: italic; color: #374151;">“${this.formatDetails(item.phrase)}”</div>` : ''}${this.formatDetails(item.details)}
                         </div>
                     </div>
                 </div>
