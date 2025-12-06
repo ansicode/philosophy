@@ -59,11 +59,14 @@ class PhilosophyTimeline {
         const schoolsWithPhilosophers = schools.map(school => {
             // 获取属于该流派的哲学家
             const philosophers = this.allData
-                .filter(item => item.type === 'person' && item.school === school.id)
-                .sort((a, b) => (a.year || 0) - (b.year || 0));
+            .filter(item => item.type === 'person' && item.school === school.id)
+            .sort((a, b) => (a.year || 0) - (b.year || 0));
+            
+            const year = Math.min(school.year, philosophers.length > 0 ? philosophers[0].year : Infinity);
 
             return {
                 ...school,
+                year,
                 philosopherIds: philosophers.map(p => p.id),
                 philosophers: philosophers
             };
