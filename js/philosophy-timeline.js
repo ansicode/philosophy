@@ -76,7 +76,7 @@ class PhilosophyTimeline {
     buildSegmentedLayout(schools) {
         const SEGMENT_YEARS = 100;
         
-        // 计算时间范围
+        // 计算时间范围（包含哲学家的年份以避免遗漏早于学派年份的人物）
         let minYear = Infinity, maxYear = -Infinity;
         schools.forEach(school => {
             minYear = Math.min(minYear, school.year || 0);
@@ -84,6 +84,7 @@ class PhilosophyTimeline {
             
             if (school.philosophers && school.philosophers.length > 0) {
                 school.philosophers.forEach(p => {
+                    minYear = Math.min(minYear, p.year || 0);
                     maxYear = Math.max(maxYear, p.year || 0);
                 });
             }
